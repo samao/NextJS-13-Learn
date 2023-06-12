@@ -26,6 +26,8 @@ jobs:
         cache: 'npm'
     - name: Setup pnpm
       uses: pnpm/action-setup@v2.2.4
+      with:
+        cache: "pnpm"
     - run: pnpm install
     - run: pnpm lint
     - run: pnpm lint-css
