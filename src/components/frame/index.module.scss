@@ -1,0 +1,10 @@
+.img {
+    height: auto;
+    max-height: 600px;
+    object-fit: contain;
+}
+
+.img + div {
+    text-align: center;
+    color: #fff;
+}

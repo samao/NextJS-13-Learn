@@ -1,0 +1,15 @@
+.imgs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.imgs a {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.imgs a img {
+    width: 100%;
+}

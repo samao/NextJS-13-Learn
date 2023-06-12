@@ -1,0 +1,17 @@
+{
+    "$schema": "https://turbo.build/schema.json",
+    "pipeline": {
+        "dev": {
+            "persistent": true,
+            "cache": false
+        },
+        "build": {},
+        "start": {},
+        "lint-all": {
+            "dependsOn": ["lint", "lint-css"]
+        },
+        "lint": {},
+        "lint-css": {},
+        "prettier": {}
+    }
+}

@@ -1,0 +1,12 @@
+
+> qie-ssr@0.1.0 prettier /Users/qietv/git/qie-ssr
+> pretty-quick
+
+🔍  Finding changed files since git revision null.
+🎯  Found 57 changed files.
+✍️  Fixing up .stylelintrc.
+✍️  Fixing up pnpm-lock.yaml.
+✍️  Fixing up src/app/globals.scss.
+✍️  Fixing up src/app/page.module.scss.
+✍️  Fixing up src/components/modal/layout.module.scss.
+✅  Everything is awesome!
