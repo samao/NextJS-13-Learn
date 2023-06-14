@@ -7,7 +7,7 @@
  */
 import Photo from '@/components/frame';
 import Modal from '@/components/modal';
-import swagPhotos from '../../../../photos';
+import swagPhotos from '@/app/photos';
 
 export default function PhotoModal({ params: { id } }: { params: { id: string } }) {
     const photo = swagPhotos.find(p => p.id === id);

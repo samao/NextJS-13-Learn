@@ -4,8 +4,8 @@ const nextConfig = {
         return require('./package.json').version;
     },
     images: {
-        domains: ['pbs.twimg.com']
-        // unoptimized: true
+        domains: ['pbs.twimg.com'],
+        unoptimized: true
     },
     poweredByHeader: false
 };

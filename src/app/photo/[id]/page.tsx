@@ -5,7 +5,7 @@
  * @Last Modified by: idzeir
  * @Last Modified time: 2023-05-30 16:35:35
  */
-import swagPhtots from '../../photos';
+import swagPhtots from '@/app/photos';
 import Photo from '@/components/frame';
 
 export default function PhotoPage({ params: { id } }: { params: { id: string } }) {
