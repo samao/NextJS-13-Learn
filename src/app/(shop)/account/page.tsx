@@ -10,8 +10,8 @@ import { headers } from 'next/headers';
 async function getData(): Promise<{ code: number; jssdk: { value: string } }> {
     const header = headers();
     // console.log('===>', header.get('referer'))
-    const url = new URL(header.get('Referer')!);
-    const res = await fetch(`${url.origin}/api`, {
+    // const url = new URL(header.get('Referer')!);
+    const res = await fetch(process.env.NEXT_PUBLIC_HOME!, {
         cache: 'no-store',
         headers: header
     });
