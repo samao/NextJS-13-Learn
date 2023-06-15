@@ -12,8 +12,7 @@ async function getData(): Promise<{ code: number; jssdk: { value: string } }> {
     // console.log('===>', header.get('referer'))
     // const url = new URL(header.get('Referer')!);
     const res = await fetch(process.env.NEXT_PUBLIC_HOME!, {
-        cache: 'no-store',
-        headers: header
+        cache: 'no-store'
     });
     return await res.json();
 }
