@@ -16,7 +16,7 @@ const Dashboard = () => (
         {/* <Suspense fallback={<p>loading weather...</p>}> */}
         <Weather />
         {/* </Suspense> */}
-        {/* @ts-expect-error Server Component */}
+        {/* ts-expect-error Server Component */}
         <PostFeed />
     </section>
 );
