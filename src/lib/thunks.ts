@@ -3,7 +3,7 @@
  * @Author: idzeir
  * @Date: 2023-06-20 15:13:13
  * @Last Modified by: idzeir
- * @Last Modified time: 2023-06-20 16:50:19
+ * @Last Modified time: 2023-06-20 17:03:35
  */
 
 import { counterSlice } from './counter-slice';
@@ -12,8 +12,7 @@ import { selectCount } from './selectors';
 import { ReduxThunkAction } from './store';
 
 const fetchIdentityCount = async (amount = 1): Promise<{ data: number }> => {
-    // console.log('request', process.env.NEXT_PUBLIC_HOME);
-    const response = await fetch(process.env.NEXT_PUBLIC_HOME! + `?counter=${amount}`);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_HOME}?${new URLSearchParams({ counter: amount + '', from: 'funny' })}`);
     const result = await response.json();
     return result;
 };
