@@ -9,6 +9,8 @@
 import PostFeed from './components/post-feed';
 import Weather from './components/weather';
 
+export const revalidate = 60;
+
 const Dashboard = () => (
     <section>
         {/* <Suspense fallback={<p>loading feed...</p>}> */}
@@ -16,7 +18,6 @@ const Dashboard = () => (
         {/* <Suspense fallback={<p>loading weather...</p>}> */}
         <Weather />
         {/* </Suspense> */}
-        {/* ts-expect-error Server Component */}
         <PostFeed />
     </section>
 );
