@@ -15,5 +15,5 @@ export default function Time({ time }: { time: number }) {
         };
     }, [now]);
 
-    return <span>{new Date(now).toLocaleString()}</span>;
+    return <span>{new Date(now).toLocaleString('zh-Hans-CN', { timeZone: 'Asia/Shanghai'})}</span>;
 }

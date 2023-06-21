@@ -9,7 +9,7 @@
 import PostFeed from './components/post-feed';
 import Weather from './components/weather';
 
-export const revalidate = 60;
+export const revalidate = 0;
 
 const Dashboard = () => (
     <section>
