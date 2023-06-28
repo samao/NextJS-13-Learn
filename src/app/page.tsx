@@ -14,7 +14,7 @@ export default function Home() {
     const [incrementAmount, setAmount] = useState(2);
 
     return (
-        <main className={styles.main}>
+        <div className={styles.main}>
             <div className={styles.description}>
                 <h1>Hello, Next.js!</h1>
                 <Link href='/dashboard'>直播</Link>
@@ -67,6 +67,6 @@ export default function Home() {
                     </button>
                 </div>
             </div>
-        </main>
+        </div>
     );
 }

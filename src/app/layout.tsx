@@ -18,6 +18,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <body>
                     <Header />
                     <main id='qie-app'>{children}</main>
+                    <footer id='footer'>FOOTER.CO</footer>
                 </body>
             </html>
         </Providers>
