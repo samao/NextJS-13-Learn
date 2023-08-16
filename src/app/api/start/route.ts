@@ -32,7 +32,7 @@ async function hackFucker() {
                     console.log('AGAIN SEND SMS');
                     hackFucker();
                 },
-                code === '1029' ? 15 * 60 * 1000 : 65 * 1000
+                code === '1029' ? 5 * 60 * 1000 : 65 * 1000
             );
             return { code, message };
         })
