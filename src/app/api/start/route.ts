@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server';
 
 declare const global: { task: any };
 
+export const revalidate = 0;
+
 async function hackFucker() {
     const mobile = Date.now() % 2 === 0 ? '18610831322' : '13681249122';
     console.log('Hacker Fucker:', mobile, new Date().toLocaleString('zh-Hans-CN', { timeZone: 'Asia/Shanghai'}));
@@ -30,7 +32,7 @@ async function hackFucker() {
                     console.log('AGAIN SEND SMS');
                     hackFucker();
                 },
-                code === '1029' ? 60 * 60 * 1000 : 65 * 1000
+                code === '1029' ? 15 * 60 * 1000 : 65 * 1000
             );
             return { code, message };
         })
