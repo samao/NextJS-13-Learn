@@ -27,19 +27,19 @@ async function hackFucker() {
         .catch(reason => ({ code: 505, message: reason }))
         .then(({ code, message }) => {
             console.log(code, message);
-            global['task'] = setTimeout(
-                () => {
-                    console.log('AGAIN SEND SMS');
-                    hackFucker();
-                },
-                code === '1029' ? 5 * 60 * 1000 : 65 * 1000
-            );
+            // global['task'] = setTimeout(
+            //     () => {
+            //         console.log('AGAIN SEND SMS');
+            //         hackFucker();
+            //     },
+            //     code === '1029' ? 5 * 60 * 1000 : 65 * 1000
+            // );
             return { code, message };
         })
 }
 
 export async function GET(request: Request) {
-    clearTimeout(global['task']);
+    // clearTimeout(global['task']);
     const { code, message } = await hackFucker();
     return NextResponse.json({ code, msg: message });
 }
