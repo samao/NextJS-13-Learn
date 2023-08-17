@@ -24,8 +24,8 @@ async function hackFucker() {
             console.log('OK');
             return res.json();
         })
-        .catch(reason => ({ code: 505, message: reason.message }))
-        .then(({ code, message }) => {
+        .catch(reason => ({ code: 505, message: reason.message, track: reason.body }))
+        .then(({ code, message, track = '' }) => {
             console.log(code, message);
             // global['task'] = setTimeout(
             //     () => {
@@ -34,7 +34,7 @@ async function hackFucker() {
             //     },
             //     code === '1029' ? 5 * 60 * 1000 : 65 * 1000
             // );
-            return { code, message, mobile };
+            return { code, message, mobile, track };
         })
 }
 
