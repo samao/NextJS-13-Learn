@@ -24,7 +24,7 @@ async function hackFucker() {
             console.log('OK');
             return res.json();
         })
-        .catch(reason => ({ code: 505, message: reason }))
+        .catch(reason => ({ code: 505, message: reason.message }))
         .then(({ code, message }) => {
             console.log(code, message);
             // global['task'] = setTimeout(
