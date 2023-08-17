@@ -34,12 +34,12 @@ async function hackFucker() {
             //     },
             //     code === '1029' ? 5 * 60 * 1000 : 65 * 1000
             // );
-            return { code, message };
+            return { code, message, mobile };
         })
 }
 
 export async function GET(request: Request) {
     // clearTimeout(global['task']);
-    const { code, message } = await hackFucker();
-    return NextResponse.json({ code, msg: message });
+    const { code, message, mobile } = await hackFucker();
+    return NextResponse.json({ code, msg: message, mobile });
 }
