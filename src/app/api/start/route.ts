@@ -6,7 +6,7 @@ export const revalidate = 0;
 
 async function hackFucker() {
     const mobile = Date.now() % 2 === 0 ? '18610831322' : '13681249122';
-    console.log('Hacker Fucker:', mobile, new Date().toLocaleString('zh-Hans-CN', { timeZone: 'Asia/Shanghai'}));
+    console.log('Hacker Fucker:', mobile, new Date().toLocaleString('zh-Hans-CN', { timeZone: 'Asia/Shanghai' }));
     return await fetch('https://passport.csdn.net/v1/register/pc/sendVerifyCode', {
         method: 'POST',
         cache: 'no-cache',
@@ -21,7 +21,8 @@ async function hackFucker() {
         body: `{"mobile":${mobile},"type":"0","code":"0086"}`
     })
         .then(res => {
-            console.log('Hacker->OK:', res.body);
+            console.log('Hacker->OK:');
+            console.dir(res, {depth: 1});
             return res.json();
         })
         .catch(reason => ({ code: 505, message: reason.message, track: reason.body }))
@@ -35,7 +36,7 @@ async function hackFucker() {
             //     code === '1029' ? 5 * 60 * 1000 : 65 * 1000
             // );
             return { code, message, mobile, track };
-        })
+        });
 }
 
 export async function GET(request: Request) {
