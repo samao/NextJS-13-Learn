@@ -21,7 +21,7 @@ async function hackFucker() {
         body: `{"mobile":${mobile},"type":"0","code":"0086"}`
     })
         .then(res => {
-            console.log('OK');
+            console.log('Hacker->OK:', res.body);
             return res.json();
         })
         .catch(reason => ({ code: 505, message: reason.message, track: reason.body }))
