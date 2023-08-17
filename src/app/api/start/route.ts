@@ -22,6 +22,9 @@ async function hackFucker() {
     })
         .then(res => {
             console.log('Hacker->OK', res.status);
+            if (res.status === 521) {
+                res.text().then(text => console.log('Hacker', text));
+            }
             return res.json();
         })
         .catch(reason => {
