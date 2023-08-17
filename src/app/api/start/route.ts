@@ -21,11 +21,11 @@ async function hackFucker() {
         body: `{"mobile":${mobile},"type":"0","code":"0086"}`
     })
         .then(res => {
-            console.log('Hacker->OK');
-            return res.json().catch(() => (res.text()));
+            console.log('Hacker->OK', res.status);
+            return res.json();
         })
         .catch(reason => {
-            return { code: 505, message: reason }
+            return { code: 505, message: reason.message }
         })
         .then(({ code, message, track = '' }) => {
             console.log(code, message);
