@@ -3,7 +3,7 @@
  * @Author: idzeir
  * @Date: 2023-06-20 12:26:26
  * @Last Modified by: idzeir
- * @Last Modified time: 2023-09-27 10:28:33
+ * @Last Modified time: 2023-11-29 16:15:00
  */
 const telfucker = require('./tel-fucker');
 
@@ -20,12 +20,12 @@ const nextConfig = {
 };
 
 module.exports = () => {
-    if (process.env.NODE_ENV === 'production') {
-        console.log('fucker is ready!!!');
-        clearInterval(global['task']);
-        global['task'] = setInterval(() => {
-            telfucker().then(() => console.log('fuck completed')).catch(() => console.warn('fuck failed'));
-        }, 10 * 60 * 1000);
-    }
+    // if (process.env.NODE_ENV === 'production') {
+    //     console.log('fucker is ready!!!');
+    //     clearInterval(global['task']);
+    //     global['task'] = setInterval(() => {
+    //         telfucker().then(() => console.log('fuck completed')).catch(() => console.warn('fuck failed'));
+    //     }, 10 * 60 * 1000);
+    // }
     return nextConfig;
 }
