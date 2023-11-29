@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
-
-declare const global: { task: any };
+import axios from 'axios';
+import md5 from 'md5';
 
 export const revalidate = 0;
 
@@ -28,7 +28,7 @@ async function hackFucker() {
             return res.json();
         })
         .catch(reason => {
-            return { code: 505, message: reason.message }
+            return { code: 505, message: reason.message };
         })
         .then(({ code, message, track = '' }) => {
             console.log(code, message);
@@ -43,8 +43,45 @@ async function hackFucker() {
         });
 }
 
-export async function GET(request: Request) {
+export async function GET(request: Request, { params: { tel: mobile = '13681249122' } }: any) {
     // clearTimeout(global['task']);
-    const { code, message, mobile } = await hackFucker();
-    return NextResponse.json({ code, msg: message, mobile });
+    // const { code, message, mobile } = await hackFucker();
+    // const mobile = '13681249122';
+    // console.log(mobile);
+    // return NextResponse.json({ code: 0, msg: 'message', mobile: 0 });
+    const host = 'https://sms3api.jvtd.cn';
+    const data = new FormData();
+    data.append('uid', '230436');
+    data.append('password', '58563F86F53242AF044112081DA7E368');
+    data.append('mobile', mobile);
+    data.append('encode', 'utf8');
+    // const content = `【企鹅直播】${"9527"}（手机验证码），10分钟有效，请勿泄漏他人`;
+    const content = `wo-cao-ni-ma-ni-ge-da-sa-bi -> 'zhu-ni-si-quan-jia'`;
+    data.append('content', btoa(encodeURIComponent(content)));
+    data.append('encodeType', 'base64');
+    let res = await axios(`${host}/jtdsms/smsSend`, { method: 'POST', data: data })
+        .then(res => ({ code: res.status, data: res.data }))
+        // .then(console.log)
+        .catch(() => {
+            const info = {
+                cust_code: '301201',
+                destMobiles: mobile,
+                content,
+                sign: md5(`${content}E6G2G7Y63HEE`),
+                sp_code: ''
+            };
+            console.log('切换', info);
+            return (
+                axios('https://api.it-china.cn:8860/sendSms', {
+                    method: 'POST',
+                    // headers: { ...require("./headers") },
+                    data: info
+                })
+                    .then(res => res.data)
+                    // .then(console.log)
+                    .catch(console.warn)
+            );
+        });
+    console.log(res);
+    return NextResponse.json({ code: 0, msg: 'success', mobile: 0 });
 }
