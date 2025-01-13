@@ -16,15 +16,11 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: 20
         cache: 'npm'
-    - name: Setup pnpm
-      uses: pnpm/action-setup@v2.2.4
-    - run: pnpm install
-    - run: pnpm lint
-    - run: pnpm lint-css
-    - run: pnpm build
+        cache-dependency-path: subdir/package-lock.json
+    - run: npm ci
+    - run: npm run build
