@@ -29,24 +29,57 @@
             </div>
 
             <style>
-                .fullscreen {
+                .rightTop {
+                    display: flex;
+                    gap: 10px;
+                    flex-direction: row;
                     position: fixed;
-                    top: 10px;
-                    right: 10px;
-                    background-color: brown;
-                    color: wheat;
-                    padding: 5px 10px;
-                    border: 0;
-                    cursor: pointer;
+                    top: 5px;
+                    right: 5px;
                     z-index: 1000;
-                    border-radius: 5px;
+                }
+                .tooltip,
+                .fullscreen,
+                .download {
+                    background-color: #007bff; /* 更改背景颜色 */
+                    color: #fff; /* 更改文字颜色 */
+                    padding: 10px 20px; /* 增加内边距 */
+                    border: none; /* 移除边框 */
+                    cursor: pointer; /* 设置鼠标指针样式为手型 */
+                    border-radius: 5px; /* 添加圆角 */
+                    font-size: 16px; /* 增加字体大小 */
+                    transition: background-color 0.3s ease; /* 添加过渡效果 */
+                }
+
+                .tooltip:hover,
+                .fullscreen:hover,
+                .download:hover {
+                    background-color: #0056b3; /* 鼠标悬停时的背景颜色 */
+                }
+
+                .tooltip {
+                    background-color: yellowgreen;
+                    pointer-events: none;
                 }
 
                 #GameCanvas {
                     aspect-ratio: 750 / 520;
                 }
+
+                :fullscreen {
+                    .rightTop {
+                        opacity: 0.4;
+                    }
+                }
             </style>
-            <div class="fullscreen">fullscreen</div>
+            <!-- 在HTML中添加一个新的div元素，用于显示提示面板 -->
+            <div class="rightTop">
+                <div class="tooltip">单机游戏无权限要求</div>
+                <a class="download" href="/client/tank-2025-release.apk" download>download APK </a>
+                <!-- 添加一个新的div元素，用于显示提示面板 -->
+
+                <div class="fullscreen">fullscreen</div>
+            </div>
         </div>
 
         <script src="src/polyfills.bundle.js" charset="utf-8"></script>
@@ -105,6 +138,8 @@
                     button.innerText = 'exit fullscreen';
                 } else {
                     button.innerText = 'fullscreen';
+
+                    canvas.setAttribute('style', 'width: 750px; height: 520px;');
                 }
             };
         </script>
